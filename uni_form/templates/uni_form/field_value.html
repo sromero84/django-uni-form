@@ -1,0 +1,9 @@
+{% load uni_form_filters %}
+
+<p>{% if field.label %}<strong>{{ field.label|safe }}: </strong>{% endif %}
+	{% if field|get_widget_name == 'checkboxselectmultiple' %}
+		{{ field.value|join:', ' }}
+	{% else %}
+		{{ field.value }}
+	{% endif %}
+</p>

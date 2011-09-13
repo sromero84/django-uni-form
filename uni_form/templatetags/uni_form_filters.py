@@ -9,6 +9,9 @@ from uni_form.helpers import FormHelper
 
 register = template.Library()
 
+@register.filter
+def get_widget_name(field):
+    return field.field.widget.__class__.__name__.lower()
 
 @register.filter
 def as_uni_form(form):
