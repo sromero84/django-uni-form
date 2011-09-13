@@ -176,7 +176,7 @@ def render_field(field, form, form_style, context, template="uni_form/field.html
         html = ''
     else:
         bound_field = BoundField(form, field_instance, field)
-        if hasattr(form, 'ready_for_email') and form.ready_for_email and \
+        if hasattr(form, 'show_only_values') and form.show_only_values and \
            form.is_valid() and field in form.cleaned_data:
             template = 'uni_form/field_value.html'
         html = render_to_string(template, {'field': bound_field, 'labelclass': labelclass})
